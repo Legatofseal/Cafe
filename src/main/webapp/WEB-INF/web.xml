@@ -2,15 +2,23 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         version="3.0">
-
+<!-- А тут такой дескриптор для аппликейшен сервера -->
     <servlet>
         <servlet-name>Jersey Web Application</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <!-- Вот этот класс грузится. Он лежит в библиотеке, подгруженной мавеном -->
+        <!-- Это часть библиотеки Jersey для реста. Она делает магию -->
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>com.example</param-value>
+            <!-- Она шерстит проект, находит пэкедж com.example и проходит по всем его классам,
+             выискивая те, которые содержат конфигурацию.
+              Потом оно собирает их вместе и направляет к ним запросы клиентов.
+              -->
         </init-param>
         <load-on-startup>1</load-on-startup>
+        <!-- Эта хрень грузится при старте. Старте чего?серве ра?А
+         ппликейшен сервераю. ок-->
     </servlet>
     <servlet-mapping>
         <servlet-name>Jersey Web Application</servlet-name>

@@ -6,9 +6,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Root resource (exposed at "myresource" path)
+ * Вот это как раз такой класс с конфигурацией
+ * Конфигурация задается через аннотаци
+ * Аннотации это что с собакой @Annotation
  */
 @Path("myresource")
+// Эта говорит, что будет принимать запросы, пришедшие на /myresource. я это знаю)
+// Отлично
 public class MyResource {
 
     /**
@@ -22,4 +26,7 @@ public class MyResource {
     public String getIt() {
         return "Hello, Heroku!";
     }
+    // Дальше должно быть понятно тоже
+
+    // Ща я пару минут добавлю тебе ин-мемори базу данных
 }
